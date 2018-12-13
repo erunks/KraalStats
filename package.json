@@ -1,0 +1,23 @@
+{
+  "name": "kraalstats",
+  "version": "1.0.0",
+  "description": "A Discord bot for tracking match-up stats in smash",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erunks/KraalStats.git"
+  },
+  "keywords": [
+    "discord",
+    "bot"
+  ],
+  "author": "Edward Runkel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erunks/KraalStats/issues"
+  },
+  "homepage": "https://github.com/erunks/KraalStats#readme"
+}
