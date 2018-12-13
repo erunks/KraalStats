@@ -1,2 +1,2 @@
 # KraalStats
-Discord bot for recording match-up stats in smash
+A Discord bot for recording and tracking match-up stats in Smash
