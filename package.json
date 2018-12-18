@@ -27,7 +27,6 @@
     "erlpack": "github:discordapp/erlpack",
     "libsodium-wrappers": "^0.7.3",
     "node-opus": "^0.2.9",
-    "nodemon": "^1.18.9",
     "opusscript": "0.0.6",
     "sodium": "^2.0.3",
     "uws": "^9.148.0"
