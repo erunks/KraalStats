@@ -1,14 +1,15 @@
 {
-  "name": "kraalstats",
+  "name": "smashcoach",
   "version": "1.0.0",
   "description": "A Discord bot for tracking match-up stats in smash",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --inspect ./app/app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/erunks/KraalStats.git"
+    "url": "git+https://github.com/erunks/SmashCoach.git"
   },
   "keywords": [
     "discord",
@@ -17,7 +18,18 @@
   "author": "Edward Runkel",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/erunks/KraalStats/issues"
+    "url": "https://github.com/erunks/SmashCoach/issues"
   },
-  "homepage": "https://github.com/erunks/KraalStats#readme"
+  "homepage": "https://github.com/erunks/SmashCoach#readme",
+  "devDependencies": {
+    "bufferutil": "^3.0.5",
+    "discord.js": "^11.4.2",
+    "erlpack": "github:discordapp/erlpack",
+    "libsodium-wrappers": "^0.7.3",
+    "node-opus": "^0.2.9",
+    "nodemon": "^1.18.9",
+    "opusscript": "0.0.6",
+    "sodium": "^2.0.3",
+    "uws": "^9.148.0"
+  }
 }
