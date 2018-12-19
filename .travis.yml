@@ -1,6 +1,15 @@
+os: linux
+dist: xenial
 language: node_js
 install:
-  - npm install
+- npm install
 cache:
   directories:
-    - "node_modules"
+  - node_modules
+deploy:
+  provider: heroku
+  api_key:
+    secure: iwnJfgF6MoXI7P7NQFbn3bzW6223V/tGuzOjDVor0TEhIveHQzVRwPF4j9kAyT9IqobWzVtAiIASflhG7jwR7WiUPMca9C7UhU3ySphF+yW+5WZH97lvixQ4EohJXrtO7iraut7cs1Q44vQY904kFAHgMSig/KdAF9wJYHZnDzpTkLsHQgSN5AMhfhI3nb7ItF9sQs5+YbP+nK0Greu2avh+VQ+vfyumUmvoiqN152Hu2WitLE3Jh+pUQctpAuzqAgHbzpe4w2Nx/laKr3H3twGkr8dQ2B+crCh1M5HxaMOI/K8Qw+6ZBz9BjAFCJfjKRl4sXyEYDuP8qnNt52rwzNJTvCwJ2VIOPmWRYeZ0P4Q6Qt64r3efM8GgK4vCIMlBoyj0pvldr2maPrGvXZI8wzChmg+4rj5Qi+NJABXpBbDdxe4lMk7/ASl27n7bmyywqu8eJWZgqILe2pyAWhGk037ZzJzmnm3A/bQUlMJ3vpso6ALgt0iRAtmJxnrI4ZofyE8a4jfUDO7scFX+v0FsuBVvbjmb7YZOP8lvCMev1NS/ER+Cv3kLNp4BMKrRSMFBzWfw39Ie7FqBaau47Lctqr3iCGcnT95Ad0lJuapwdRpCpW6BYpLR8rRf6ChhT4w00HVI20zxXCKh/WQ4vEeP9zRSehSF4KfaxcbZ2r4qsc8=
+  app: SmashCoach
+  on:
+    repo: erunks/SmashCoach

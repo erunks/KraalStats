@@ -30,5 +30,6 @@
     "opusscript": "0.0.6",
     "sodium": "^2.0.3",
     "uws": "^9.148.0"
-  }
+  },
+  "dependencies": {}
 }
