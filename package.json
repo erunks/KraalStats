@@ -4,7 +4,7 @@
   "description": "A Discord bot for tracking match-up stats in smash",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"No tests specified, yet.\" && exit 0",
     "start": "nodemon --inspect ./app/app.js"
   },
   "repository": {
@@ -23,12 +23,19 @@
   "homepage": "https://github.com/erunks/SmashCoach#readme",
   "devDependencies": {
     "bufferutil": "^3.0.5",
-    "discord.js": "^11.4.2",
+    "chai": "^4.2.0",
     "erlpack": "github:discordapp/erlpack",
     "libsodium-wrappers": "^0.7.3",
+    "mocha": "^5.2.0",
     "node-opus": "^0.2.9",
     "opusscript": "0.0.6",
+    "sinon": "^7.2.2",
+    "sinon-chai": "^3.3.0",
     "sodium": "^2.0.3",
     "uws": "^9.148.0"
+  },
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "mysql": "^2.16.0"
   }
 }
