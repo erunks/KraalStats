@@ -1,9 +1,12 @@
+'use strict';
+
 let config;
 
 try {
 	config = require('./config.json');
 } catch(e) {
 	config = {
+		"DISCORD_MESSAGE_PREFIX": os.environ["DISCORD_MESSAGE_PREFIX"],
 		"DISCORD_BOT_SECRET": os.environ["DISCORD_BOT_SECRET"],
 		"PAPERTRAIL_API_TOKEN": os.environ["PAPERTRAIL_API_TOKEN"]
 	};
