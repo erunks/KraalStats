@@ -4,8 +4,9 @@ class DiscordClient {
 	constructor() {
 		const Discord = require('discord.js');
 		this.client = new Discord.Client();
-		this.config = require('./config.js');
 		this.messages = require('./messages.json');
+		const DatabaseClient = require('./DatabaseClient.js');
+		this.database = new DatabaseClient();
 	};
 
 	start() {
@@ -21,7 +22,7 @@ class DiscordClient {
 		this.client.on('message', message => {
 			this._recieve(message);
 		});
-		this.client.login(this.config.DISCORD_BOT_SECRET);
+		this.client.login(process.env.DISCORD_BOT_SECRET);
 	};
 
 	stop() {
@@ -32,8 +33,8 @@ class DiscordClient {
 	_recieve(message) {
 		let prefix = null;
 		console.log(this.client.user.username, this.client.user.tag, this.client.user.id, message.content);
-		if(this._messageBeginsWithPrefix(message, this.config.DISCORD_MESSAGE_PREFIX)) {
-			prefix = this.config.DISCORD_MESSAGE_PREFIX;
+		if(this._messageBeginsWithPrefix(message, process.env.DISCORD_MESSAGE_PREFIX)) {
+			prefix = process.env.DISCORD_MESSAGE_PREFIX;
 		}
 		else if(this._messageBeginsWithPrefix(message, `<@${this.client.user.id}>`)) {
 			prefix = `<@${this.client.user.id}>`;

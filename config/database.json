@@ -1,0 +1,18 @@
+{
+	"dev": {
+		"driver": "mysql",
+		"user": {"ENV" : "GEARHOST_DEV_USER_NAME"},
+		"password": {"ENV" : "GEARHOST_DEV_USER_PASS"},
+		"host": {"ENV" : "GEARHOST_DEV_HOST_URL"},
+		"database": {"ENV" : "GEARHOST_DEV_DATABASE"},
+		"multipleStatements": true
+	},
+	"prod": {
+		"driver": "mysql",
+		"user": {"ENV" : "GEARHOST_PROD_USER_NAME"},
+		"password": {"ENV" : "GEARHOST_PROD_USER_PASS"},
+		"host": {"ENV" : "GEARHOST_PROD_HOST_URL"},
+		"database": {"ENV" : "GEARHOST_PROD_DATABASE"},
+		"multipleStatements": true
+	}
+}
