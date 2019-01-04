@@ -28,7 +28,6 @@
   "devDependencies": {
     "bufferutil": "^3.0.5",
     "chai": "^4.2.0",
-    "dotenv": "^6.2.0",
     "erlpack": "github:discordapp/erlpack",
     "libsodium-wrappers": "^0.7.3",
     "mocha": "^5.2.0",
@@ -40,10 +39,12 @@
     "uws": "^9.148.0"
   },
   "dependencies": {
+    "dotenv": "^6.2.0",
     "db-migrate": "^0.11.4",
     "db-migrate-mysql": "^1.1.10",
     "discord.js": "^11.4.2",
     "mysql": "^2.16.0",
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.18.9",
+    "npm": "6.5.0"
   }
 }
