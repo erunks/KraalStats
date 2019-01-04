@@ -16,14 +16,14 @@ exports.setup = function(options, seedLink) {
 
 exports.up = function(db, callback) {
   return db.createTable('players', {
-  	id: { 
+    id: { 
       type: 'int', 
       notNull: true,
       primaryKey: true,
       autoIncrement: true
     },
-  	name: 'string',
-  	createdAt: 'timestamp',
+    name: 'string',
+    createdAt: 'timestamp',
     updatedAt: 'timestamp'
   }, callback);
 };
@@ -33,5 +33,5 @@ exports.down = function(db, callback) {
 };
 
 exports._meta = {
-  "version": 1
+  'version': 1
 };

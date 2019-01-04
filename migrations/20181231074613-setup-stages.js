@@ -17,16 +17,16 @@ exports.setup = function(options, seedLink) {
 
 exports.up = function(db, callback) {
   db.createTable('stages', {
-  	id: { 
+    id: { 
       type: 'int', 
       notNull: true,
       primaryKey: true,
       autoIncrement: true
     },
-  	name: 'string',
-  	tournament_legal: 'boolean',
-  	createdAt: 'timestamp',
-  	updatedAt: 'timestamp'
+    name: 'string',
+    tournament_legal: 'boolean',
+    createdAt: 'timestamp',
+    updatedAt: 'timestamp'
   }).then(function(result) {
     setupStages();
   });
@@ -34,7 +34,7 @@ exports.up = function(db, callback) {
   function setupStages() {
     var time = new Date().toJSON().split(/[A-Z.]/).slice(0,2).join(' ').trim();
     var stages = require('../assets/stages.json');
-    for(var key in stages){
+    for (var key in stages) {
       var stage = stages[key];
       db.insert(
         'stages',
@@ -51,5 +51,5 @@ exports.down = function(db, callback) {
 };
 
 exports._meta = {
-  "version": 1
+  'version': 1
 };

@@ -16,13 +16,13 @@ exports.setup = function(options, seedLink) {
 
 exports.up = function(db, callback) {
   return db.createTable('matches', {
-  	id: { 
+    id: { 
       type: 'int',
       notNull: true,
       primaryKey: true,
       autoIncrement: true
     },
-  	stage_id: { 
+    stage_id: { 
       type: 'int', 
       notNull: true,
       foreignKey: {
@@ -35,7 +35,7 @@ exports.up = function(db, callback) {
         mapping: 'id'
       }
     },
-  	player_one_id: { 
+    player_one_id: { 
       type: 'int',
       notNull: true,
       foreignKey: {
@@ -48,7 +48,7 @@ exports.up = function(db, callback) {
         mapping: 'id'
       }
     },
-  	fighter_one_id: {
+    fighter_one_id: {
       type: 'int',
       notNull: true,
       foreignKey: {
@@ -61,7 +61,7 @@ exports.up = function(db, callback) {
         mapping: 'id'
       }
     },
-  	player_two_id: { 
+    player_two_id: { 
       type: 'int',
       notNull: true,
       foreignKey: {
@@ -74,7 +74,7 @@ exports.up = function(db, callback) {
         mapping: 'id'
       }
     },
-  	fighter_two_id: {
+    fighter_two_id: {
       type: 'int',
       notNull: true,
       foreignKey: {
@@ -87,12 +87,12 @@ exports.up = function(db, callback) {
         mapping: 'id'
       }
     },
-  	tournament_match: 'boolean',
-  	stocks_taken_by_player_one: 'int',
-  	stocks_lost_by_player_one: 'int',
-  	stage_chosen_by_player_one: 'boolean',
-  	createdAt: 'timestamp',
-  	updatedAt: 'timestamp'
+    tournament_match: 'boolean',
+    stocks_taken_by_player_one: 'int',
+    stocks_lost_by_player_one: 'int',
+    stage_chosen_by_player_one: 'boolean',
+    createdAt: 'timestamp',
+    updatedAt: 'timestamp'
   }, callback);
 };
 
