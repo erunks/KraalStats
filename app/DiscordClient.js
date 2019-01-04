@@ -67,6 +67,8 @@ class DiscordClient {
 						resolve(message.reply(this.messages.SHUTDOWN));
 					}).then((value) => {
 						this.stop();
+					}).catch((error) => {
+						throw error;
 					});
 				}
 				else{

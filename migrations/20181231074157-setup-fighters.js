@@ -28,6 +28,8 @@ exports.up = function(db, callback) {
     updatedAt: 'timestamp'
   }).then(function(result) {
     setupFighters();
+  }).catch(function(error) {
+    throw error;
   });
 
   function setupFighters() {

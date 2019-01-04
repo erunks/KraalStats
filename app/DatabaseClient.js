@@ -50,3 +50,5 @@ class DatabaseClient {
 		return this.pool.query(sql, callback);
 	};
 };
+
+module.exports = DatabaseClient;
