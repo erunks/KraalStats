@@ -16,7 +16,12 @@ exports.setup = function(options, seedLink) {
 
 exports.up = function(db, callback) {
   return db.createTable('commands', {
-  	id: { type: 'int', primaryKey: true },
+  	id: { 
+      type: 'int', 
+      notNull: true,
+      primaryKey: true,
+      autoIncrement: true
+    },
   	command: 'string',
   	response: 'string',
     createdAt: 'timestamp',

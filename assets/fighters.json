@@ -1,0 +1,314 @@
+{
+	"1": {
+		"name": "Mario",
+		"dlc": false
+	},
+	"2": {
+		"name": "Donkey Kong",
+		"dlc": false
+	},
+	"3": {
+		"name": "Link",
+		"dlc": false
+	},
+	"4": {
+		"name": "Samus",
+		"dlc": false
+	},
+	"5": {
+		"name": "Dark Samus",
+		"dlc": false
+	},
+	"6": {
+		"name": "Yoshi",
+		"dlc": false
+	},
+	"7": {
+		"name": "Kirby",
+		"dlc": false
+	},
+	"8": {
+		"name": "Fox",
+		"dlc": false
+	},
+	"9": {
+		"name": "Pikachu",
+		"dlc": false
+	},
+	"10": {
+		"name": "Luigi",
+		"dlc": false
+	},
+	"11": {
+		"name": "Ness",
+		"dlc": false
+	},
+	"12": {
+		"name": "Captain Falcon",
+		"dlc": false
+	},
+	"13": {
+		"name": "Jigglypuff",
+		"dlc": false
+	},
+	"14": {
+		"name": "Peach",
+		"dlc": false
+	},
+	"15": {
+		"name": "Daisy",
+		"dlc": false
+	},
+	"16": {
+		"name": "Bowser",
+		"dlc": false
+	},
+	"17": {
+		"name": "Ice Climbers",
+		"dlc": false
+	},
+	"18": {
+		"name": "Sheik",
+		"dlc": false
+	},
+	"19": {
+		"name": "Zelda",
+		"dlc": false
+	},
+	"20": {
+		"name": "Dr. Mario",
+		"dlc": false
+	},
+	"21": {
+		"name": "Pichu",
+		"dlc": false
+	},
+	"22": {
+		"name": "Falco",
+		"dlc": false
+	},
+	"23": {
+		"name": "Marth",
+		"dlc": false
+	},
+	"24": {
+		"name": "Lucina",
+		"dlc": false
+	},
+	"25": {
+		"name": "Young Link",
+		"dlc": false
+	},
+	"26": {
+		"name": "Ganondorf",
+		"dlc": false
+	},
+	"27": {
+		"name": "Mewtwo",
+		"dlc": false
+	},
+	"28": {
+		"name": "Roy",
+		"dlc": false
+	},
+	"29": {
+		"name": "Chrom",
+		"dlc": false
+	},
+	"30": {
+		"name": "Mr. Game & Watch",
+		"dlc": false
+	},
+	"31": {
+		"name": "Meta Knight",
+		"dlc": false
+	},
+	"32": {
+		"name": "Pit",
+		"dlc": false
+	},
+	"33": {
+		"name": "Dark Pit",
+		"dlc": false
+	},
+	"34": {
+		"name": "Zero Suit Samus",
+		"dlc": false
+	},
+	"35": {
+		"name": "Wario",
+		"dlc": false
+	},
+	"36": {
+		"name": "Snake",
+		"dlc": false
+	},
+	"37": {
+		"name": "Ike",
+		"dlc": false
+	},
+	"38": {
+		"name": "Pokémon Trainer Squirtle",
+		"dlc": false
+	},
+	"39": {
+		"name": "Pokémon Trainer Ivysaur",
+		"dlc": false
+	},
+	"40": {
+		"name": "Pokémon Trainer Charizard",
+		"dlc": false
+	},
+	"41": {
+		"name": "Diddy Kong",
+		"dlc": false
+	},
+	"42": {
+		"name": "Lucas",
+		"dlc": false
+	},
+	"43": {
+		"name": "Sonic",
+		"dlc": false
+	},
+	"44": {
+		"name": "King Dedede",
+		"dlc": false
+	},
+	"45": {
+		"name": "Olimar",
+		"dlc": false
+	},
+	"46": {
+		"name": "Lucario",
+		"dlc": false
+	},
+	"47": {
+		"name": "R.O.B.",
+		"dlc": false
+	},
+	"48": {
+		"name": "Toon Link",
+		"dlc": false
+	},
+	"49": {
+		"name": "Wolf",
+		"dlc": false
+	},
+	"50": {
+		"name": "Villager",
+		"dlc": false
+	},
+	"51": {
+		"name": "Mega Man",
+		"dlc": false
+	},
+	"52": {
+		"name": "Wii Fit Trainer",
+		"dlc": false
+	},
+	"53": {
+		"name": "Rosalina & Luma",
+		"dlc": false
+	},
+	"54": {
+		"name": "Little Mac",
+		"dlc": false
+	},
+	"55": {
+		"name": "Greninja",
+		"dlc": false
+	},
+	"56": {
+		"name": "Mii Fighter Brawler",
+		"dlc": false
+	},
+	"57": {
+		"name": "Mii Fighter Swordfighter",
+		"dlc": false
+	},
+	"58": {
+		"name": "Mii Fighter Gunner",
+		"dlc": false
+	},
+	"59": {
+		"name": "Palutena",
+		"dlc": false
+	},
+	"60": {
+		"name": "Pac-man",
+		"dlc": false
+	},
+	"61": {
+		"name": "Robin",
+		"dlc": false
+	},
+	"62": {
+		"name": "Shulk",
+		"dlc": false
+	},
+	"63": {
+		"name": "Bowser Jr.",
+		"dlc": false
+	},
+	"64": {
+		"name": "Duck Hunt",
+		"dlc": false
+	},
+	"65": {
+		"name": "Roy",
+		"dlc": false
+	},
+	"66": {
+		"name": "Ken",
+		"dlc": false
+	},
+	"67": {
+		"name": "Cloud",
+		"dlc": false
+	},
+	"68": {
+		"name": "Corrin",
+		"dlc": false
+	},
+	"69": {
+		"name": "Bayonetta",
+		"dlc": false
+	},
+	"70": {
+		"name": "Inkling",
+		"dlc": false
+	},
+	"71": {
+		"name": "Ridley",
+		"dlc": false
+	},
+	"72": {
+		"name": "Simon",
+		"dlc": false
+	},
+	"73": {
+		"name": "Richter",
+		"dlc": false
+	},
+	"74": {
+		"name": "King K. Rool",
+		"dlc": false
+	},
+	"75": {
+		"name": "Isabelle",
+		"dlc": false
+	},
+	"76": {
+		"name": "Incineroar",
+		"dlc": false
+	},
+	"77": {
+		"name": "Piranha Plant",
+		"dlc": true
+	},
+	"78": {
+		"name": "Joker",
+		"dlc": true
+	}
+}
