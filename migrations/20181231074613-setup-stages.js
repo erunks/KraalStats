@@ -29,6 +29,8 @@ exports.up = function(db, callback) {
     updatedAt: 'timestamp'
   }).then(function(result) {
     setupStages();
+  }).catch(function(error) {
+    throw error;
   });
 
   function setupStages() {
