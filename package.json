@@ -1,8 +1,12 @@
 {
   "name": "smashcoach",
   "version": "1.0.0",
+  "engines": {
+    "node": "8.0.0",
+    "npm": "6.5.0"
+  },
   "description": "A Discord bot for tracking match-up stats in smash",
-  "main": "index.js",
+  "main": "./app/app.js",
   "scripts": {
     "test": "echo \"No tests specified, yet.\" && exit 0",
     "start": "nodemon --inspect ./app/app.js"
