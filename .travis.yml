@@ -13,3 +13,6 @@ deploy:
   app: smashcoach
   on:
     repo: erunks/SmashCoach
+branches:
+  only:
+    -master
