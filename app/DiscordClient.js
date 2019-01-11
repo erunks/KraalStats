@@ -62,10 +62,10 @@ class DiscordClient {
 				message.reply(this.messages.PONG);
 				break;
 			case 'shutdown':
-				if(message.member.roles.find('name', 'Bot Manager')){
+				if(this._hasPermissions(message, 'Bot Manager')){
 					let promise = new Promise((resolve,reject) => {
 						resolve(message.reply(this.messages.SHUTDOWN));
-					}).then((value) => {
+					}).then((result) => {
 						this.stop();
 					}).catch((error) => {
 						throw error;
@@ -75,9 +75,50 @@ class DiscordClient {
 					message.reply(this.messages.MISSING_PERMISSIONS)
 				}
 				break;
+			case 'report':
+				const regex = /!report (random )?(friendly|tournament) (\w+)\((.+)\) (\d) to (\w+|\?)\((.+)\) (\d) on (.+)/;
+				let match = message.toString().split(regex);
+				console.log(match, match[1], match[0] === undefined)
+				if (match.length <= 1) {
+					new Promise((resolve,reject) => {
+						resolve(message.reply('Format invalid! Match reporting failed!'));
+					}).then((result) => {
+						console.error('Format invalid! Match reporting failed!');
+					}).catch((error) => {
+						throw error;
+					});
+				} else {
+					new Promise((resolve,reject) => {
+						resolve(this._reportMatch(match[3], match[4], parseInt(match[5],10), match[6], match[7], parseInt(match[8], 10), match[9], !!match[1], !!match[2]));
+					}).then((result) => {
+						message.reply('Match reported successfully!');
+					}).catch((error) => {
+						throw error;
+					});
+				}
+				break;
 			default: 
 				message.reply(`Sorry, I don't know how to respond to '${command}' yet.`);
 		};
+	};
+
+	_hasPermissions(message, role) {
+		return message.member.roles.find('name', role);
+	};
+
+	_reportMatch(playerOne, fighterOne, stocksTakenByPlayerOne, playerTwo, fighterTwo, stocksTakenByPlayerTwo, stage, stageChosenByPlayerOne = false, tournamentMatch = false) {
+		let playerOneId = this.database.findOrCreatePlayer(playerOne);
+		let fighterOneId = this.database.findFighter(fighterOne);
+		let playerTwoId = this.database.findOrCreatePlayer(playerTwo);
+		let fighterTwoId = this.database.findFighter(fighterTwo);
+		let stageId = this.database.findStage(stage);
+		let time = this.database._getTime();
+
+		// let results = this.database.query(
+		// 	`INSERT INTO matches (stage_id, player_one_id, fighter_one_id, player_two_id, fighter_two_id, tournament_match, stocks_taken_by_playe_one, stocks_lost_by_playe_one, stage_chosen_by_player_one, createdAt, updatedAt)
+		// 	VALUES (${stageId}, ${playerOneId}, ${fighterOneId}, ${playerTwoId}, ${fighterTwoId}, ${tournamentMatch}, ${stocksTakenByPlayerOne}, ${stocksTakenByPlayerTwo}, ${stageChosenByPlayerOne}, ${time}, ${time});`);
+
+		return results;
 	};
 };
 
