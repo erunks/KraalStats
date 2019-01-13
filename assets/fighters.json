@@ -256,58 +256,54 @@
 		"dlc": false
 	},
 	"65": {
-		"name": "Roy",
-		"dlc": false
-	},
-	"66": {
 		"name": "Ken",
 		"dlc": false
 	},
-	"67": {
+	"66": {
 		"name": "Cloud",
 		"dlc": false
 	},
-	"68": {
+	"67": {
 		"name": "Corrin",
 		"dlc": false
 	},
-	"69": {
+	"68": {
 		"name": "Bayonetta",
 		"dlc": false
 	},
-	"70": {
+	"69": {
 		"name": "Inkling",
 		"dlc": false
 	},
-	"71": {
+	"70": {
 		"name": "Ridley",
 		"dlc": false
 	},
-	"72": {
+	"71": {
 		"name": "Simon",
 		"dlc": false
 	},
-	"73": {
+	"72": {
 		"name": "Richter",
 		"dlc": false
 	},
-	"74": {
+	"73": {
 		"name": "King K. Rool",
 		"dlc": false
 	},
-	"75": {
+	"74": {
 		"name": "Isabelle",
 		"dlc": false
 	},
-	"76": {
+	"75": {
 		"name": "Incineroar",
 		"dlc": false
 	},
-	"77": {
+	"76": {
 		"name": "Piranha Plant",
 		"dlc": true
 	},
-	"78": {
+	"77": {
 		"name": "Joker",
 		"dlc": true
 	}
