@@ -78,7 +78,6 @@ class DiscordClient {
 			case 'report':
 				const regex = /!report (random )?(friendly|tournament) (\w+)\((.+)\) (\d) to (\w+|\?)\((.+)\) (\d) on (.+)/;
 				let match = message.toString().split(regex);
-				console.log(match, match[1], match[0] === undefined)
 				if (match.length <= 1) {
 					new Promise((resolve,reject) => {
 						resolve(message.reply('Format invalid! Match reporting failed!'));
@@ -97,6 +96,12 @@ class DiscordClient {
 					});
 				}
 				break;
+			case 'fighters':
+				console.log(this.database._getFighters());
+				break;
+			case 'stages':
+				console.log(this.database._getStages());
+				break;
 			default: 
 				message.reply(`Sorry, I don't know how to respond to '${command}' yet.`);
 		};
@@ -107,18 +112,22 @@ class DiscordClient {
 	};
 
 	_reportMatch(playerOne, fighterOne, stocksTakenByPlayerOne, playerTwo, fighterTwo, stocksTakenByPlayerTwo, stage, stageChosenByPlayerOne = false, tournamentMatch = false) {
-		let playerOneId = this.database.findOrCreatePlayer(playerOne);
+		let playerOneId = this.database.findOrCreatePlayer(playerOne).then(() => { return this.database.results; });
 		let fighterOneId = this.database.findFighter(fighterOne);
 		let playerTwoId = this.database.findOrCreatePlayer(playerTwo);
 		let fighterTwoId = this.database.findFighter(fighterTwo);
 		let stageId = this.database.findStage(stage);
 		let time = this.database._getTime();
 
-		// let results = this.database.query(
-		// 	`INSERT INTO matches (stage_id, player_one_id, fighter_one_id, player_two_id, fighter_two_id, tournament_match, stocks_taken_by_playe_one, stocks_lost_by_playe_one, stage_chosen_by_player_one, createdAt, updatedAt)
-		// 	VALUES (${stageId}, ${playerOneId}, ${fighterOneId}, ${playerTwoId}, ${fighterTwoId}, ${tournamentMatch}, ${stocksTakenByPlayerOne}, ${stocksTakenByPlayerTwo}, ${stageChosenByPlayerOne}, ${time}, ${time});`);
+		Promise.all([playerOneId, fighterOneId, playerTwoId, fighterTwoId, stageId, time]).then((results) => {
+			console.log(results);
+		});
 
-		return results;
+		// let results = this.database.query(
+		// 	`INSERT INTO ${this.database.database}.matches (stage_id, player_one_id, fighter_one_id, player_two_id, fighter_two_id, tournament_match, stocks_taken_by_playe_one, stocks_lost_by_playe_one, stage_chosen_by_player_one, createdAt, updatedAt)
+		// 	VALUES ('${stageId}', '${playerOneId}', '${fighterOneId}', '${playerTwoId}', '${fighterTwoId}', '${tournamentMatch}', '${stocksTakenByPlayerOne}', '${stocksTakenByPlayerTwo}', '${stageChosenByPlayerOne}', '${time}', '${time}');`);
+
+		// return results;
 	};
 };
 
