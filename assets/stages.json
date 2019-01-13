@@ -5,7 +5,7 @@
     "image": "stage_img1.jpg",
 		"thumb": "stage_thumb1.jpg",
     "name": "Battlefield",
-    "legal": false,
+    "legal": true,
 		"dlc": false
   },
   "1": {
