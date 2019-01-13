@@ -9,7 +9,7 @@
   "main": "./app/app.js",
   "scripts": {
     "test": "echo \"No tests specified, yet.\" && exit 0",
-    "prestart": "knex migrate:latest && knex seed:run",
+    "prestart": "knex migrate:latest --env production && knex seed:run",
     "start": "nodemon --inspect ./app/app.js"
   },
   "repository": {
