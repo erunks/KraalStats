@@ -1,1 +1,1 @@
-worker: node --inspect ./app/app.js
+worker: npm start

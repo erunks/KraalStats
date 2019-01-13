@@ -56,16 +56,16 @@ class DiscordClient {
 		return (message.content.match(regex) !== null);
 	};
 
-	_handleCommands(message, command, args) {
+	async _handleCommands(message, command, args) {
 		switch(command) {
 			case 'ping':
 				message.reply(this.messages.PONG);
 				break;
 			case 'shutdown':
-				if(message.member.roles.find('name', 'Bot Manager')){
+				if(this._hasPermissions(message, 'Bot Manager')){
 					let promise = new Promise((resolve,reject) => {
 						resolve(message.reply(this.messages.SHUTDOWN));
-					}).then((value) => {
+					}).then((result) => {
 						this.stop();
 					}).catch((error) => {
 						throw error;
@@ -75,9 +75,70 @@ class DiscordClient {
 					message.reply(this.messages.MISSING_PERMISSIONS)
 				}
 				break;
+			case 'report':
+				const regex = /!report (random )?(friendly|tournament) (\w+)\((.+)\) (\d) to (\w+|\?)\((.+)\) (\d) on (.+)/;
+				let match = message.toString().split(regex);
+				if (match.length <= 1) {
+					new Promise((resolve,reject) => {
+						resolve(message.reply('Format invalid! Match reporting failed!'));
+					}).then((result) => {
+						console.error('Format invalid! Match reporting failed!');
+					}).catch((error) => {
+						throw error;
+					});
+				} else {
+					new Promise(async (resolve,reject) => {
+						resolve(await this._reportMatch(match[3], match[4], parseInt(match[5],10), match[6], match[7], parseInt(match[8], 10), match[9], match[1] !== 'random', match[2] !== 'friendly'));
+					}).then((result) => {
+						message.reply('Match reported successfully!');
+					}).catch((error) => {
+						throw error;
+					});
+				}
+				break;
+			case 'fighters':
+				let fighters = await this.database._getFighters();
+				fighters = fighters.map((fighter) => { return fighter.name });
+				message.reply(`Fighters: ${fighters}`);
+				break;
+			case 'stages':
+				let stages = await this.database._getStages();
+				stages = stages.map((stage) => { return stage.name; });
+				message.reply(`Stages: ${stages}`);
+				break;
 			default: 
 				message.reply(`Sorry, I don't know how to respond to '${command}' yet.`);
 		};
+	};
+
+	_hasPermissions(message, role) {
+		return message.member.roles.find('name', role);
+	};
+
+	async _reportMatch(playerOne, fighterOne, stocksTakenByPlayerOne, playerTwo, fighterTwo, stocksTakenByPlayerTwo, stage, stageChosenByPlayer = false, tournamentMatch = false) {
+		let playerOneId = await this.database.findOrCreatePlayer(playerOne);
+		let fighterOneId = await this.database.findFighter(fighterOne);
+		let playerTwoId = await this.database.findOrCreatePlayer(playerTwo);
+		let fighterTwoId = await this.database.findFighter(fighterTwo);
+		let stageId = await this.database.findStage(stage);
+		let time = this.database._getTime();
+
+		let results = this.database.knex('matches').insert({
+			stage_id: stageId,
+			player_one_id: playerOneId,
+			fighter_one_id: fighterOneId,
+			stocks_taken_by_player_one: stocksTakenByPlayerOne,
+			stage_chosen_by_player_one: stageChosenByPlayer,
+			player_two_id: playerTwoId,
+			fighter_two_id: fighterTwoId,
+			stocks_taken_by_player_two: stocksTakenByPlayerTwo,
+			stage_chosen_by_player_two: stageChosenByPlayer,
+			tournament_match: tournamentMatch
+		})
+		.then((result) => { return result })
+		.catch((error) => { throw error });
+
+		return results;
 	};
 };
 
