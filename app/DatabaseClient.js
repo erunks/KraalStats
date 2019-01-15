@@ -70,8 +70,8 @@ class DatabaseClient {
 	};
 
 	_toJSONObject(object) {
-		let jsonString = JSON.stringify(object);
 		if (object.length <= 1) {
+			let jsonString = JSON.stringify(object);
 			jsonString = jsonString.substring(1, jsonString.length - 1);
 			return JSON.parse(jsonString);
 		} else {
