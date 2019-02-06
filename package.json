@@ -2,8 +2,8 @@
   "name": "smashcoach",
   "version": "1.0.0",
   "engines": {
-    "node": "8.0.0",
-    "npm": "6.5.0"
+    "node": "11.0.0",
+    "npm": "6.7.0"
   },
   "description": "A Discord bot for tracking match-up stats in smash",
   "main": "./app/app.js",
