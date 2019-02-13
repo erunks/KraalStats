@@ -9,10 +9,20 @@ cache:
 branches:
   only:
   - master
+  - develop
 deploy:
-  provider: heroku
-  api_key:
-    secure: N4QyMZs0Zle4dN1AzKhDsju/zoXfdUZ9MTPJi5tcE/nM+RzM5+yPK4eajd+Jps5t632gPKGV0ILXT44hd/wFCGjvbvZV7UF/E5dYXKTL7WgpOqviOIijiE7YmfDPymde0bQNTdKcS5HTU5+IUrCVVDIACdhZNB5XYaTByUlUP1nFlNIxS/kkgU77ksEW8/ZnP0HFBKvKgSpClMY7WUm2i1XgaFIMoJYYsBJfPGurvDHOPGaQsSWbdLo/qHgY30/FBKg99Hmv8xo9HspNz3C5t8nQhky3Q7NgLXEyXHFhGDTFDf5LDeq5AESIkwc44SzSCnmd3PEYjeDpyqpQGmbrUPg0p8T+/Njw0K+K64FLp1oCHY5gQFqZe4SK8uUpN8CQwFu0T0OotPX7jaB1aF9+tij11OWjJs72h5BwJyyuPny4krCxcDdv9Rhlu54+/FjZcu0Rpbe8dAvix8iVkOvMNlZLtZVcQDnUnHLa9CBiTlfkR7030t9K6KLwxEBVh7k1R7uH8GZIhanr+hLQ/Xwu8G7HnKTx7SGby3Ub5+qYqPzkywbeWt4FFiDPughDPKBTq0KIs0GFsJ6bCJjSfj8Stj7fyJKF93K5vcAf6/POMmi/uaQlBY8QjhkTdvsU5/pQ2q0ySC0AHIX6B65kAar+ytFcp5rdUbto5puk7Ep2C7w=
-  app: smashcoach
-  on:
-    repo: erunks/SmashCoach
+  - provider: heroku
+    api_key:
+      secure: N4QyMZs0Zle4dN1AzKhDsju/zoXfdUZ9MTPJi5tcE/nM+RzM5+yPK4eajd+Jps5t632gPKGV0ILXT44hd/wFCGjvbvZV7UF/E5dYXKTL7WgpOqviOIijiE7YmfDPymde0bQNTdKcS5HTU5+IUrCVVDIACdhZNB5XYaTByUlUP1nFlNIxS/kkgU77ksEW8/ZnP0HFBKvKgSpClMY7WUm2i1XgaFIMoJYYsBJfPGurvDHOPGaQsSWbdLo/qHgY30/FBKg99Hmv8xo9HspNz3C5t8nQhky3Q7NgLXEyXHFhGDTFDf5LDeq5AESIkwc44SzSCnmd3PEYjeDpyqpQGmbrUPg0p8T+/Njw0K+K64FLp1oCHY5gQFqZe4SK8uUpN8CQwFu0T0OotPX7jaB1aF9+tij11OWjJs72h5BwJyyuPny4krCxcDdv9Rhlu54+/FjZcu0Rpbe8dAvix8iVkOvMNlZLtZVcQDnUnHLa9CBiTlfkR7030t9K6KLwxEBVh7k1R7uH8GZIhanr+hLQ/Xwu8G7HnKTx7SGby3Ub5+qYqPzkywbeWt4FFiDPughDPKBTq0KIs0GFsJ6bCJjSfj8Stj7fyJKF93K5vcAf6/POMmi/uaQlBY8QjhkTdvsU5/pQ2q0ySC0AHIX6B65kAar+ytFcp5rdUbto5puk7Ep2C7w=
+    app: smashcoach
+    on:
+      repo: erunks/SmashCoach
+      branch: master
+      
+  - provider: heroku
+    api_key:
+      secure: N4QyMZs0Zle4dN1AzKhDsju/zoXfdUZ9MTPJi5tcE/nM+RzM5+yPK4eajd+Jps5t632gPKGV0ILXT44hd/wFCGjvbvZV7UF/E5dYXKTL7$
+    app: smashstudent
+    on:
+      repo: erunks/SmashCoach
+      branch: develop
