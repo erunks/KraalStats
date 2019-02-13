@@ -1,0 +1,77 @@
+{
+  "addons": [
+    "librato",
+    "newrelic",
+    "papertrail"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "env": {
+    "DISCORD_BOT_SECRET": {
+      "required": true
+    },
+    "DISCORD_MESSAGE_PREFIX": {
+      "required": true
+    },
+    "ENV": {
+      "required": true
+    },
+    "GEARHOST_PROD_DATABASE": {
+      "required": true
+    },
+    "GEARHOST_PROD_HOST_URL": {
+      "required": true
+    },
+    "GEARHOST_PROD_USER_NAME": {
+      "required": true
+    },
+    "GEARHOST_PROD_USER_PASS": {
+      "required": true
+    },
+    "HOSTNAME": {
+      "required": true
+    },
+    "LIBRATO_PASSWORD": {
+      "required": true
+    },
+    "LIBRATO_TOKEN": {
+      "required": true
+    },
+    "LIBRATO_USER": {
+      "required": true
+    },
+    "NEW_RELIC_LICENSE_KEY": {
+      "required": true
+    },
+    "NEW_RELIC_LOG": {
+      "required": true
+    },
+    "NODE_MODULES_CACHE": {
+      "required": true
+    },
+    "PAPERTRAIL_API_TOKEN": {
+      "required": true
+    },
+    "POOL_CONNECTION_MAX": {
+      "required": true
+    },
+    "POOL_CONNECTION_MIN": {
+      "required": true
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1
+    },
+    "web": {
+      "quantity": 1
+    }
+  },
+  "name": "SmashCoach",
+  "scripts": {
+  },
+  "stack": "heroku-16"
+}
