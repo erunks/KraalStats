@@ -1,5 +1,7 @@
 'use strict';
 
+import { _toJSONObject, _query } from '../lib/databaseUtils';
+
 class DatabaseClient {
 	constructor() {
 		this.knex = require('knex')({
@@ -24,62 +26,32 @@ class DatabaseClient {
 		});
 	}
 
-	_getTime() {
-		return new Date()
-			.toJSON()
-			.split(/[A-Z.]/)
-			.slice(0, 2)
-			.join(' ')
-			.trim();
+	async _getCommandResponse(commandName) {
+		return await _query(this.knex, {
+			from: 'commands',
+			where: { call: commandName },
+			returnFunction: (res) => _toJSONObject(res).answer,
+		});
 	}
 
 	async _getFighters() {
-		return await this.knex
-			.select()
-			.from('fighters')
-			.then((results) => {
-				return this._toJSONObject(results);
-			})
-			.catch((error) => {
-				throw error;
-			});
+		return await _query(this.knex, { from: 'fighters' });
 	}
 
 	async _getPlayers() {
-		return await this.knex
-			.select()
-			.from('players')
-			.then((results) => {
-				return this._toJSONObject(results);
-			})
-			.catch((error) => {
-				throw error;
-			});
+		return await _query(this.knex, { from: 'players' });
 	}
 
 	async _getStages() {
-		return await this.knex
-			.select()
-			.from('stages')
-			.then((results) => {
-				return this._toJSONObject(results);
-			})
-			.catch((error) => {
-				throw error;
-			});
+		return await _query(this.knex, { from: 'stages' });
 	}
 
 	async findFighter(fighterName) {
-		return await this.knex
-			.select()
-			.from('fighters')
-			.where({ name: fighterName })
-			.then((results) => {
-				return this._toJSONObject(results).id;
-			})
-			.catch((error) => {
-				throw error;
-			});
+		return await _query(this.knex, {
+			from: 'fighters',
+			where: { name: fighterName },
+			returnFunction: (res) => _toJSONObject(res).id,
+		});
 	}
 
 	async findOrCreatePlayer(playerName) {
@@ -88,7 +60,7 @@ class DatabaseClient {
 			.from('players')
 			.where({ name: playerName })
 			.then((results) => {
-				return this._toJSONObject(results).id;
+				return _toJSONObject(results).id;
 			})
 			.catch(async (error) => {
 				await this.knex('players').insert({ name: playerName });
@@ -97,7 +69,7 @@ class DatabaseClient {
 					.from('players')
 					.where({ name: playerName })
 					.then((results) => {
-						return this._toJSONObject(results).id;
+						return _toJSONObject(results).id;
 					})
 					.catch((error) => {
 						throw error;
@@ -106,26 +78,11 @@ class DatabaseClient {
 	}
 
 	async findStage(stageName) {
-		return await this.knex
-			.select()
-			.from('stages')
-			.where({ name: stageName })
-			.then((results) => {
-				return this._toJSONObject(results).id;
-			})
-			.catch((error) => {
-				throw error;
-			});
-	}
-
-	_toJSONObject(object) {
-		if (object.length <= 1) {
-			let jsonString = JSON.stringify(object);
-			jsonString = jsonString.substring(1, jsonString.length - 1);
-			return JSON.parse(jsonString);
-		} else {
-			return object;
-		}
+		return await _query(this.knex, {
+			from: 'stages',
+			where: { name: stageName },
+			returnFunction: (res) => _toJSONObject(res).id,
+		});
 	}
 }
 
