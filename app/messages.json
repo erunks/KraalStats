@@ -1,5 +1,12 @@
 {
+  "LOGIN": "Logged in as",
+  "LOGOUT": "Logged out.",
+  "FORMAT_INVALID": "Format invalid!",
+  "MATCH_REPORT_FAILED": "Match reporting failed!",
+  "MATCH_REPORT_SUCCESSFUL": "Match reported successfully!",
   "MISSING_PERMISSIONS": "You do not have sufficient permissions to perform this command.",
   "PONG": "pong",
+  "SET_COMMAND_FAILED": "Failed to set the command!",
+  "SET_COMMAND_SUCCESSFUL": "Command set successfully!",
   "SHUTDOWN": "Shutting down..."
 }
