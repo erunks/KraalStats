@@ -8,7 +8,8 @@
   "description": "A Discord bot for tracking match-up stats in smash",
   "main": "./app/app.js",
   "scripts": {
-    "test": "echo \"No tests specified, yet.\" && exit 0",
+    "test": "mocha ./app/test/*.test.{js,ts}",
+    "test:watch": "mocha ./app/test/*.test.{js,ts} --watch",
     "prestart": "knex migrate:latest --env production",
     "start": "nodemon --inspect ./app/app.js",
     "format:prettier": "prettier --config ./config/prettier.config.js --write '{app,assets,db}/**/*.js'",

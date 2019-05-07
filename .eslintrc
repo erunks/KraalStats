@@ -4,6 +4,13 @@
     "node": true
   },
 
+  "globals": {
+    "afterEach": "readonly",
+    "beforeEach": "readonly",
+    "describe": "readonly",
+    "it": "readonly"
+  },
+
   "parserOptions": {
     "ecmaVersion": 2017,
     "sourceType": "module",
