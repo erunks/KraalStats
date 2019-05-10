@@ -156,7 +156,9 @@ class DiscordClient {
 	}
 
 	_hasPermissions(message, role) {
-		return message.member.roles.find('name', role);
+		return message.member.roles.find((val) => {
+			return val.name === role;
+		});
 	}
 
 	async _reportMatch(

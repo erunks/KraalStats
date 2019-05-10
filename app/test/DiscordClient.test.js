@@ -1,13 +1,17 @@
 const Collection = require('discord.js').Collection;
 
-const expect = require('chai').expect;
+const chai = require('chai');
 const DiscordClient = require('../DiscordClient');
+chai.use(require('chai-truthy'));
+
+const expect = chai.expect;
 
 describe('DiscordClient', () => {
 	let client;
 
-	beforeEach(() => {
+	beforeEach((done) => {
 		client = new DiscordClient();
+		done();
 	});
 
 	describe('#_messageBeginsWithPrefix', () => {
@@ -35,43 +39,31 @@ describe('DiscordClient', () => {
 		});
 	});
 
-	//TODO
-	// describe('#_hasPermissions', () => {
-	//     const role = 'Admin';
+	describe('#_hasPermissions', () => {
+		const role = 'Admin';
 
-	//     describe('user has permission', () => {
-	//         it('returns true', () => {
-	//             const message = {
-	//                 member: {
-	//                     roles: new Collection([
-	//                         ['role', {name: 'Admin'}]
-	//                     ])
-	//                 }
-	//             };
+		describe('user has permission', () => {
+			it('returns true', () => {
+				const message = {
+					member: {
+						roles: new Collection([['role', { name: 'Admin' }]]),
+					},
+				};
 
-	//             message.member.roles.find((val) => {
-	//                 console.log(val);
-	//                 return val.name === role;
-	//             });
+				expect(client._hasPermissions(message, role)).to.be.truthy();
+			});
+		});
 
-	//             expect(client._hasPermissions(message, role)).to.be.true;
-	//         });
-	//     });
+		describe('user does not have permission', () => {
+			it('returns true', () => {
+				const message = {
+					member: {
+						roles: new Collection([['name', 'User']]),
+					},
+				};
 
-	//     describe('user does not have permission', () => {
-	//         it('returns true', () => {
-	//             const message = {
-	//                 member: {
-	//                     roles: new Collection([
-	//                         ['name','User']
-	//                     ])
-	//                 }
-	//             };
-
-	//             console.log(message.member.roles);
-
-	//             expect(client._hasPermissions(message, role)).to.be.true;
-	//         });
-	//     });
-	// });
+				expect(client._hasPermissions(message, role)).to.be.falsy();
+			});
+		});
+	});
 });
