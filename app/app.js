@@ -1,4 +1,5 @@
 'use strict';
+
 require('dotenv').config();
 const DiscordClient = require('./DiscordClient.js');
 

@@ -8,13 +8,16 @@
   "description": "A Discord bot for tracking match-up stats in smash",
   "main": "./app/app.js",
   "scripts": {
-    "test": "mocha ./app/test/*.test.{js,ts}",
-    "test:watch": "mocha ./app/test/*.test.{js,ts} --watch",
+    "build": "ENV=PROD",
+    "coverage": "nyc npm run test",
+    "test": "ENV=DEV && mocha ./app/test/*.test.{js,ts}",
+    "test:watch": "npm run test -- --watch",
     "prestart": "knex migrate:latest --env production",
     "start": "nodemon --inspect ./app/app.js",
     "format:prettier": "prettier --config ./config/prettier.config.js --write '{app,assets,db}/**/*.js'",
     "lint": "npm run lint:eslint -- . ",
-    "lint:eslint": "eslint --ignore-path .gitignore"
+    "lint:eslint": "eslint --ignore-path .gitignore",
+    "dotenv": "node -r dotenv/config"
   },
   "repository": {
     "type": "git",
@@ -46,6 +49,7 @@
     "lint-staged": "^8.1.5",
     "mocha": "^5.2.0",
     "node-opus": "^0.2.9",
+    "nyc": "^14.1.1",
     "opusscript": "0.0.6",
     "prettier": "^1.17.0",
     "sinon": "^7.3.2",
